@@ -45,6 +45,7 @@ class PostController < Sinatra::Base
      @title = "Home"
      erb :"posts/index"
    end
+
    # All request
    get "/books" do
      @title = "All books"
@@ -54,17 +55,26 @@ class PostController < Sinatra::Base
 
    # Get 'Create New' form
    get "/books/new" do
-     "Create new book"
+    erb :"posts/new"
    end
 
    # POST request of new form
     post "/" do
-     "New book added"
+      new_post = {
+        id: $books.length,
+        title: params[:title],
+        author: params[:author],
+        year_released: params[:year_released],
+        description: params[:description]
+      }
+
+      $books.push(new_post)
+      redirect "/books"
    end
 
    # Get 'Edit entry' form
    get "/books/:id/edit" do
-     "Edit existing book"
+     erb :"posts/edit"
    end
 
    # PUT request of edit form
