@@ -11,11 +11,20 @@
 
 ### Home Screen
 
+![Home Screen](readme_img/home.png)
 
 ### Show all books
 
+![All Screen](readme_img/all.png)
+
 ### Show a single book
+
+![One Screen](readme_img/one.png)
 
 ### Add form
 
+![Add Screen](readme_img/add.png)
+
 ### Edit form
+
+![Edit Screen](readme_img/edit.png)
