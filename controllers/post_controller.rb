@@ -47,7 +47,9 @@ class PostController < Sinatra::Base
    end
    # All request
    get "/books" do
-     "Show all books"
+     @title = "All books"
+     @books = $books
+     erb :"posts/show_all"
    end
 
    # Get 'Create New' form
