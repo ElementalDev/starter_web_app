@@ -1,10 +1,21 @@
 # Web Application Start Homework
 
 ## Requirements
-- [] Working web application
-- [] Use the 7 RESTful routes
-- [] Use resources that are different from the lesson resources
-- [] Add forms that add information to a hash array
-- [] Meet the definition of done
+- [x] Working web application
+- [x] Use the 7 RESTful routes
+- [x] Use resources that are different from the lesson resources
+- [x] Add forms that add information to a hash array
+- [x] Meet the definition of done
 
 ## Result
+
+### Home Screen
+
+
+### Show all books
+
+### Show a single book
+
+### Add form
+
+### Edit form

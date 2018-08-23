@@ -55,6 +55,8 @@ class PostController < Sinatra::Base
 
    # Get 'Create New' form
    get "/books/new" do
+     @title = "Add book"
+     # Assign the book_info object for use in the html
      @book_info = {
        id: "",
        title: "",
@@ -83,7 +85,10 @@ class PostController < Sinatra::Base
 
    # Get 'Edit entry' form
    get "/books/:id/edit" do
+     @title = "Edit book"
+     # Get the id from the parameters
      id = params[:id].to_i
+     # Get the specific object from the books array using the array from the browser
      @book = $books[id]
      @book_info = {
        id: @book[:id],
@@ -97,7 +102,17 @@ class PostController < Sinatra::Base
 
    # PUT request of edit form
    put "/:id" do
-     "Book updated"
+     id = params[:id].to_i
+     @book = $books[id]
+     # Update the record
+     @book[:title] = params[:title]
+     @book[:author] = params[:author]
+     @book[:year_released] = params[:year_released]
+     @book[:description] = params[:description]
+
+     $books[id] = @book
+
+     redirect "/books"
    end
 
    # DELETE Entry

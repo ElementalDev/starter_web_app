@@ -14,7 +14,7 @@
   <div>
     <input type="submit" name="" value="Add book">
   </div>
+  <% if @book_info[:id] != "" %>
+    <input type="hidden" name="_method" value="PUT">
+  <% end %>
 </form>
-<% if @book_info[:id] != "" %>
-  <input type="hidden" name="_method" value="PUT">
-<% end %>
