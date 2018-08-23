@@ -7,10 +7,10 @@ class PostController < Sinatra::Base
 
    # Starts the Sinatra reloader
    configure :development do
-     register Sinartra::Reloader
+     register Sinatra::Reloader
    end
 
-   # Temporary data storage (Hash array) and default posts
+   # Temporary data storage (Hash array) for default posts
    $books = [{
     id: 0,
     title: "Harry Potter and the Philosophers stone",
@@ -29,53 +29,55 @@ class PostController < Sinatra::Base
      id: 2,
      title: "IT",
      author: "Stephen King",
-     year_released: "15 Sept 1986"
+     year_released: "15 Sept 1986",
      description: "In the storm drains, in the sewers, IT lurks, taking the shape of every nightmare for every person in the small town of Derry."
    },
    {
      id: 3,
      title: "Lord of the Flies",
      author: "William Golding",
-     year_released: "17 Sept 1954"
+     year_released: "17 Sept 1954",
      description: "A plan crashes on a desert island and the only survirors, a group of school boys, assemble on the beach and wait to be rescued."
    }]
+
    # Root request
    get "/" do
-     "Home"
+     @title = "Home"
+     erb :"posts/index"
    end
    # All request
    get "/books" do
-
-   end
-
-   # One request
-   get "/books/:id" do
-
+     "Show all books"
    end
 
    # Get 'Create New' form
    get "/books/new" do
-
+     "Create new book"
    end
 
    # POST request of new form
-   get "/" do
-
+    post "/" do
+     "New book added"
    end
 
    # Get 'Edit entry' form
    get "/books/:id/edit" do
-
+     "Edit existing book"
    end
 
    # PUT request of edit form
    put "/:id" do
-
+     "Book updated"
    end
 
    # DELETE Entry
    delete "/:id" do
-     
+     "Delete a book"
+   end
+
+   # One request
+   get "/books/:id" do
+     "Show one book"
    end
 
 end
