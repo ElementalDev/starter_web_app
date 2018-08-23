@@ -1,17 +1,20 @@
-<form action="/" method="post">
+<form action="/<%= @book_info[:id] %>" method="post">
   <div>
-    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="title" placeholder="Title" value="<%= @book_info[:title] %>">
   </div>
   <div>
-    <input type="text" name="author" placeholder="Author">
+    <input type="text" name="author" placeholder="Author" value="<%= @book_info[:author] %>">
   </div>
   <div>
-    <input type="text" name="year_released" placeholder="Year Released">
+    <input type="text" name="year_released" placeholder="Year Released" value="<%= @book_info[:year_released] %>">
   </div>
   <div>
-    <textarea name="description"></textarea>
+    <textarea name="description"><%= @book_info[:description] %></textarea>
   </div>
   <div>
     <input type="submit" name="" value="Add book">
   </div>
 </form>
+<% if @book_info[:id] != "" %>
+  <input type="hidden" name="_method" value="PUT">
+<% end %>

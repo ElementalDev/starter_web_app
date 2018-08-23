@@ -15,28 +15,28 @@ class PostController < Sinatra::Base
     id: 0,
     title: "Harry Potter and the Philosophers stone",
     author: "J. K. Rowling",
-    year_released: "26 Jun 1997",
+    year_released: "1997",
     description: "Harry Potter: The boy who lived. 1st year at Hogwarts certainly didn't go as planned."
    },
    {
      id: 1,
      title: "Stormbreaker",
      author: "Anthony Horowitz",
-     year_released: "4 Sept 2000",
+     year_released: "2000",
      description: "After his uncle is killed in an 'accident', Alex Rider takes his place as an MI6 agent, poised to stop codename: Stormbreaker."
    },
    {
      id: 2,
      title: "IT",
      author: "Stephen King",
-     year_released: "15 Sept 1986",
+     year_released: "1986",
      description: "In the storm drains, in the sewers, IT lurks, taking the shape of every nightmare for every person in the small town of Derry."
    },
    {
      id: 3,
      title: "Lord of the Flies",
      author: "William Golding",
-     year_released: "17 Sept 1954",
+     year_released: "1954",
      description: "A plan crashes on a desert island and the only survirors, a group of school boys, assemble on the beach and wait to be rescued."
    }]
 
@@ -55,11 +55,19 @@ class PostController < Sinatra::Base
 
    # Get 'Create New' form
    get "/books/new" do
+     @book_info = {
+       id: "",
+       title: "",
+       author: "",
+       year_released: "",
+       description: ""
+     }
     erb :"posts/new"
    end
 
    # POST request of new form
     post "/" do
+      # Get the information that the user submitted
       new_post = {
         id: $books.length,
         title: params[:title],
@@ -67,13 +75,23 @@ class PostController < Sinatra::Base
         year_released: params[:year_released],
         description: params[:description]
       }
-
+      # Add the information to the array
       $books.push(new_post)
+      # Redirect back to the books list
       redirect "/books"
    end
 
    # Get 'Edit entry' form
    get "/books/:id/edit" do
+     id = params[:id].to_i
+     @book = $books[id]
+     @book_info = {
+       id: @book[:id],
+       title: @book[:title],
+       author: @book[:author],
+       year_released: @book[:year_released],
+       description: @book[:description]
+     }
      erb :"posts/edit"
    end
 
