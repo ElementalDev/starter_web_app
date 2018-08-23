@@ -74,10 +74,10 @@ class PostController < Sinatra::Base
 
    # DELETE Entry
    delete "/:id" do
-     id = params[:id]
+     id = params[:id].to_i
      # Get the id and delete at this index
      $books.delete_at(id)
-     redirect "/"
+     redirect "/books"
    end
 
    # One request
@@ -85,6 +85,7 @@ class PostController < Sinatra::Base
      id = params[:id].to_i
      @book = $books[id]
      @title = @book[:title]
+     erb :"posts/show_one"
    end
 
 end

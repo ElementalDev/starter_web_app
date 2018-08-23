@@ -1,0 +1,9 @@
+<form action="/<%= @book[:id] %>" method="post">
+ <input type="text" name="title" value="">
+ <input type="text" name="author" value="">
+ <input type="text" name="year_released" value="">
+ <textarea name="description"></textarea>
+</form>
+<% if(@book[:id] != "") %>
+  <input type="hidden" name="_method" value="PUT">
+<% end %>
