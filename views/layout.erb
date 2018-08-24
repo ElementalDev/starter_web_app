@@ -1,0 +1,14 @@
+<!-- LAYOUT - FOUND BY ERB AND IS COMMON LAYOUT OF SITE -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @title %></title>
+  </head>
+  <body>
+    <!-- Get the partial of navigation -->
+    <%= erb(:"partials/navigation") %>
+    <!-- Get the content of the original request -->
+    <%= yield %>
+  </body>
+</html>
