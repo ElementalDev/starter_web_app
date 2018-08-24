@@ -1,9 +1,9 @@
 <!-- Show all the books -->
 <% @books.each do |book| %>
   <div>
-    <img src="<%= book[:img_url] %>" alt="Picture not found">
+    <a href="/books/<%= book[:id] %>"><img src="<%= book[:img_url] %>" alt="Picture not found"></a>
     <h3>
-      <a href="/books/<%= book[:id] %>"> <%= book[:title] %> </a>
+      <a href="/books/<%= book[:id] %>"><%= book[:title] %></a>
     </h3>
     <p><%= book[:author] %></p>
   </div>
