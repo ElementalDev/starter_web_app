@@ -13,6 +13,7 @@ class PostController < Sinatra::Base
    # Temporary data storage (Hash array) for default posts
    $books = [{
     id: 0,
+    img_url: "https://media.bloomsbury.com/rep/bj/9780747532699.jpg",
     title: "Harry Potter and the Philosophers stone",
     author: "J. K. Rowling",
     year_released: "1997",
@@ -20,6 +21,7 @@ class PostController < Sinatra::Base
    },
    {
      id: 1,
+     img_url: "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Stormbreakerbook.jpg/220px-Stormbreakerbook.jpg",
      title: "Stormbreaker",
      author: "Anthony Horowitz",
      year_released: "2000",
@@ -28,12 +30,14 @@ class PostController < Sinatra::Base
    {
      id: 2,
      title: "IT",
+     img_url: "https://images-na.ssl-images-amazon.com/images/I/5123BkxEJ3L._SX324_BO1,204,203,200_.jpg",
      author: "Stephen King",
      year_released: "1986",
      description: "In the storm drains, in the sewers, IT lurks, taking the shape of every nightmare for every person in the small town of Derry."
    },
    {
      id: 3,
+     img_url: "https://images-na.ssl-images-amazon.com/images/I/51KsgCsIYyL._SX315_BO1,204,203,200_.jpg",
      title: "Lord of the Flies",
      author: "William Golding",
      year_released: "1954",
